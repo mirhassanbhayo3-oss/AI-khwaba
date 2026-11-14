@@ -1,0 +1,43 @@
+KHWAAB AI — موبائل سے مفت ویب سائٹ بنانے کی آسان ہدایت
+======================================================
+
+یہ نیا پیکج کیا بہتر کرتا ہے؟
+- ایک ہی chat دوبارہ دوبارہ history میں duplicate نہیں ہوتی۔
+- AI کو موجودہ chat کے پچھلے 16 messages بھی بھیجے جاتے ہیں، اس لیے follow-up سوال سمجھنے میں مدد ملتی ہے۔
+- تصویر upload ہونے پر API کے لیے چھوٹی JPEG بنتی ہے؛ history میں صرف چھوٹا preview محفوظ ہوتا ہے، اس سے فون کی storage کم بھرتی ہے۔
+- PWA cache update بہتر ہے تاکہ نئی website version دوبارہ کھولنے پر ملے۔
+
+GitHub Pages پر شائع کرنے کے مراحل
+----------------------------------
+1. Chrome میں https://github.com/new کھولیں۔
+2. Repository name میں khwaab-ai لکھیں۔
+3. Public منتخب کریں اور Create repository دبائیں۔
+4. Add file → Upload files دبائیں۔
+5. اس ZIP کو فون میں Extract کریں۔
+6. Extract کیے ہوئے فولڈر کے اندر کی تمام فائلیں اپلوڈ کریں:
+   index.html, manifest.webmanifest, sw.js, icon-192.png, icon-512.png
+7. Commit changes دبائیں۔
+8. Repository میں Settings → Pages کھولیں۔
+9. Deploy from a branch منتخب کریں، Branch = main، Folder = /(root)، پھر Save کریں۔
+10. GitHub جو https://...github.io/... لنک دے، اسے Chrome میں کھولیں۔
+11. ⚙ Settings میں اپنی Gemini API Key ڈال کر ذاتی طور پر test کریں۔
+12. Chrome کے ⋮ menu میں Add to Home screen منتخب کریں۔
+
+API Key کی حفاظت — بہت ضروری
+----------------------------
+- API Key صرف ذاتی test کے لیے اس browser کے local storage میں رکھی جاتی ہے۔
+- اسے GitHub، کسی public file، screenshot یا کسی دوسرے شخص کو ہرگز نہ دیں۔
+- اس version میں key browser سے Google API کو جاتی ہے۔ Public users کے لیے یہ محفوظ نہیں۔
+- Public launch سے پہلے Cloudflare Worker یا دوسرے secure backend میں API Key secret کے طور پر رکھنی ہوگی۔
+- Gemini API کے free-tier limits اور availability بدل سکتی ہیں؛ usage کی حد یا خرچ Google AI Studio میں دیکھیں۔
+
+Voice کی حدود
+-------------
+- مائیک کے لیے HTTPS website اور Chrome microphone permission ضروری ہے۔
+- Download کی ہوئی HTML file (content://) میں مائیک قابلِ اعتماد طریقے سے نہیں چلتا۔
+- Speech Recognition ہر Android/browser پر یکساں دستیاب نہیں۔
+- یہ turn-by-turn voice prototype ہے، مسلسل low-latency live call نہیں۔
+
+اگر کوئی صفحہ مختلف نظر آئے
+---------------------------
+اسکرین شاٹ بھیجیں؛ اگلا بٹن اسی تصویر کے مطابق بتایا جا سکتا ہے۔
